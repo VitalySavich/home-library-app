@@ -39,13 +39,6 @@ public class BookController {
         return bookRepository.findAll();
     }
 
-    @PostMapping("/api/book/add")
-    public Book addBook(@RequestParam String name, @RequestParam String author){
-
-        Book book = new Book(name, author);
-        return bookRepository.save(book);
-    }
-
     @PostMapping("/api/book/create")
     public Book createBook(@RequestBody Book book){
         log.info("Create Book Operation");

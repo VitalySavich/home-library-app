@@ -19,11 +19,18 @@ public class Book {
     public Book() {
     }
 
-    public Book(String password, String author) {
+    public Book(String name, String author, String published, String year, String city) {
         this.name = name;
         this.author = author;
+        this.published = published;
+        this.year = year;
+        this.city = city;
     }
 
     private String name;
     private String author;
+    private String published;
+    private String year;
+    private String city;
+
 }
