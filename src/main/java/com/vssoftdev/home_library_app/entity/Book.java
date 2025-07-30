@@ -3,12 +3,11 @@ package com.vssoftdev.home_library_app.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
-
-
 @Getter
 @Setter
 @Entity
+@Builder
+@AllArgsConstructor
 @Table(name = "BOOK")
 
 public class Book {

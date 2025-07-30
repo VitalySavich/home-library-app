@@ -2,6 +2,7 @@ package com.vssoftdev.home_library_app.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vssoftdev.home_library_app.dto.BookDTO;
 import com.vssoftdev.home_library_app.entity.Book;
 import com.vssoftdev.home_library_app.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
@@ -40,10 +41,16 @@ public class BookController {
     }
 
     @PostMapping("/api/book/create")
-    public Book createBook(@RequestBody Book book){
+    public Book createBook(@RequestBody BookDTO bookDTO){
         log.info("Create Book Operation");
 
-        return bookRepository.save(book);
+        return bookRepository.save(Book.builder()
+                        .name(bookDTO.getName())
+                        .author(bookDTO.getAuthor())
+                        .published(bookDTO.getPublished())
+                        .year(bookDTO.getYear())
+                        .city(bookDTO.getCity())
+                .build());
     }
 
     @DeleteMapping("/api/book")
